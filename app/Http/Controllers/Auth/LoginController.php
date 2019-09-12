@@ -38,6 +38,8 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+//        $user = User::find(1);
+//        Auth::login($user);
     }
 
     /**
@@ -58,18 +60,25 @@ class LoginController extends Controller
     {
         $user = Socialite::driver($provider)->stateless()->user();
 
-        $dd = User::where('provider_id',$user->getId())->first();
-        if (!$dd) {
-            $dd =  User::create([
-                'email' => $user->getEmail(),
-                'name' => $user->getName(),
-                'provider_id' => $user->getId(),
-                'provider' => $provider,
-            ]);
+        $socialUser = User::where('provider_id',$user->getId())->first();
+       $email_check = User::where('email',$user->getEmail())->first();
+        if (!$socialUser) {
+           if (!$email_check){
+                $socialUser =  User::create([
+                    'email' => $user->getEmail(),
+                    'name' => $user->getName(),
+                    'provider_id' => $user->getId(),
+                    'provider' => $provider,
 
+                ]);
+            }
         }
-
-        Auth::login($dd,true);
+      if (!$socialUser){
+        Auth::login($email_check,true);
+        }
+       else{
+        Auth::login($socialUser,true);
+    }
 
         return redirect($this->redirectTo);
     }
