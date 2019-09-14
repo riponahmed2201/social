@@ -4,6 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if(session('successMsg'))
+
+                <div class="alert alert-success">
+                    <strong>Success!</strong>Succesfully Change your Password.
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
