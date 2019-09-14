@@ -24,5 +24,8 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 
 Route::get('privacy-policy','PrivacyController@index');
 
+Route::get('/change-password','Auth\ChangePasswordController@index')->name('password.change');
+Route::post('/change-password','Auth\ChangePasswordController@ChangePassword')->name('password.update');
+
 
 
