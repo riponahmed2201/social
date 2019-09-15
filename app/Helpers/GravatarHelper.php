@@ -1,4 +1,8 @@
 <?php
+namespace App\Helpers;
+
+
+
 
 class GravatarHelper{
 
