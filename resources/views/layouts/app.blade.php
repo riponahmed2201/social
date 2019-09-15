@@ -50,9 +50,9 @@
                                 </li>
                             @endif
                         @else
-
+                 <li>   <img src="{{App\Helpers\ImageHelper::getUserImage(Auth::user()->id)}}" class="im rounded-circle" style="width: 40px"></li>
                             <li class="nav-item dropdown">
-                                <img src="{{App\Helpers\ImageHelper::getUserImage(Auth::user()->id)}}">
+{{--                                <img src="{{App\Helpers\ImageHelper::getUserImage(Auth::user()->id)}}" class="im rounded-circle" style="width: 40px">--}}
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>

@@ -29,3 +29,6 @@ Route::post('/change-password','Auth\ChangePasswordController@ChangePassword')->
 
 
 
+//Route::get('check-ip', function(){
+//    dd(\Request::ip());
+//});

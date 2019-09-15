@@ -12,12 +12,14 @@ class ImageHelper{
             if ($user->avatar == NULL){
                 // return the gravatar image
                 if (GravatarHelper::validate_gravatar($user->email)){
-                    $avatar_url = Gravatarhelper::gravatar_image($user->email,100);
+                    $avatar_url = Gravatarhelper::gravatar_image($user->email,50);
                 }else{
-                    // when  there is no image
+//                    $avatar_url = url('images/defaults/user.png');
                 }
             }else{
+
                 //return that image
+//                $avatar_url = url('images/users/'.$user->avatar);
             }
         }else{
 //            return redirect('/');

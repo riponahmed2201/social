@@ -23,7 +23,7 @@ public static function  validate_gravatar($email){
  return $has_valid_avatar;
 }
 
-public static function  gravatar_image($email, $size = 0,$d=""){
+public static function  gravatar_image($email, $size,$d=""){
     $hash = md5($email);
     $image_url = 'http://gravatar.com/avatar/' .$hash. '?s='.$size.'&d='.$d;
     return $image_url;
